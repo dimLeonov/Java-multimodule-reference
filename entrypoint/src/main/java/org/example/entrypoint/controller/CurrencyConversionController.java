@@ -35,8 +35,8 @@ public class CurrencyConversionController {
     })
     @GetMapping("/convert")
     public BigDecimal convertCurrency(
-            @Parameter(description = "Currency to convert from. Supported values: USD, EUR, SEK, RUB", required = true) @RequestParam Currency from,
-            @Parameter(description = "Currency to convert to. Supported values: USD, EUR, SEK, RUB", required = true) @RequestParam Currency to,
+            @Parameter(description = "Currency to convert from. Supported values: USD, EUR, SEK", required = true) @RequestParam Currency from,
+            @Parameter(description = "Currency to convert to. Supported values: USD, EUR, SEK", required = true) @RequestParam Currency to,
             @Parameter(description = "Amount to convert", required = true) @RequestParam BigDecimal amount) {
         log.info("Converting {} {} to {}", amount, from, to);
         return convertCurrencyUseCase.execute(from, to, amount);
