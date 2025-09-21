@@ -1,13 +1,13 @@
 # Java Multi-Module Clean Architecture Showcase
 
-This project is a showcase of a clean architecture approach using a hexagonal (ports and adapters) design in a multi-module Java project with Spring Boot.
+This demo project is a showcase of a clean architecture approach using a hexagonal (ports and adapters) design in a multi-module Java project with Spring Boot.
 
 ## Architecture
 
 The project follows the principles of **Hexagonal Architecture**, also known as **Ports and Adapters**. This architectural style aims to create a loosely coupled application that can be easily tested and maintained.
 
 - **Domain (business module):** This is the core of the application. It contains the business logic, models, and use cases. It has no dependencies on any other layer.
-- **Adapters (entrypoint, gateway, repository modules):** These modules contain the implementation details that connect the application to the outside world. This includes web controllers, database repositories, and external service clients. They depend on the application layer.
+- **Adapters (entrypoint, gateway, repository modules):** These modules contain the implementation details that connect the application to the outside world. This includes web controllers, database repositories, and external service clients. They depend on the business layer.
 
 ## Modules
 
