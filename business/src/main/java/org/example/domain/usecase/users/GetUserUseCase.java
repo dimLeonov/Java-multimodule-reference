@@ -22,6 +22,8 @@ public class GetUserUseCase {
      * @return the user if found, null otherwise
      */
     public User execute(Long id) {
-        return userRepository.findById(id).orElse(null);
+        return userRepository
+                .findById(id)
+                .orElse(null);
     }
 }

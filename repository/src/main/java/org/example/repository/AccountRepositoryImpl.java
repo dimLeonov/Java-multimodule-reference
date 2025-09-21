@@ -34,26 +34,32 @@ public class AccountRepositoryImpl implements AccountRepository {
     
     @Override
     public Optional<Account> findById(Long id) {
-        return accountJpaRepository.findById(id)
+        return accountJpaRepository
+                .findById(id)
                 .map(accountMapper::toDomain);
     }
     
     @Override
     public List<Account> findByUserId(Long userId) {
-        return accountJpaRepository.findByUserId(userId).stream()
+        return accountJpaRepository
+                .findByUserId(userId)
+                .stream()
                 .map(accountMapper::toDomain)
                 .collect(Collectors.toList());
     }
     
     @Override
     public Optional<Account> findByAccountNumber(String accountNumber) {
-        return accountJpaRepository.findByAccountNumber(accountNumber)
+        return accountJpaRepository
+                .findByAccountNumber(accountNumber)
                 .map(accountMapper::toDomain);
     }
     
     @Override
     public List<Account> findAll() {
-        return accountJpaRepository.findAll().stream()
+        return accountJpaRepository
+                .findAll()
+                .stream()
                 .map(accountMapper::toDomain)
                 .collect(Collectors.toList());
     }

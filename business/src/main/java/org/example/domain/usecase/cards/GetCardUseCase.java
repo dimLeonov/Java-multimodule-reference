@@ -26,6 +26,8 @@ public class GetCardUseCase {
      * @return the card if found, null otherwise
      */
     public Card execute(Long id) {
-        return cardRepository.findById(id).orElse(null);
+        return cardRepository
+                .findById(id)
+                .orElse(null);
     }
 }

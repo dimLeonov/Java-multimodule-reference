@@ -39,26 +39,32 @@ public class CardRepositoryImpl implements CardRepository {
     @Override
     public Optional<Card> findById(Long id) {
         log.info("Finding card by id: {}", id);
-        return cardJpaRepository.findById(id)
+        return cardJpaRepository
+                .findById(id)
                 .map(cardMapper::toDomain);
     }
 
     @Override
     public List<Card> findByAccountId(Long accountId) {
-        return cardJpaRepository.findByAccountId(accountId).stream()
+        return cardJpaRepository
+                .findByAccountId(accountId)
+                .stream()
                 .map(cardMapper::toDomain)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Optional<Card> findByCardNumber(String cardNumber) {
-        return cardJpaRepository.findByCardNumber(cardNumber)
+        return cardJpaRepository
+                .findByCardNumber(cardNumber)
                 .map(cardMapper::toDomain);
     }
 
     @Override
     public List<Card> findAll() {
-        return cardJpaRepository.findAll().stream()
+        return cardJpaRepository
+                .findAll()
+                .stream()
                 .map(cardMapper::toDomain)
                 .collect(Collectors.toList());
     }

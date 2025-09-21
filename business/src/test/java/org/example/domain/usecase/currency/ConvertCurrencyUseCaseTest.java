@@ -67,7 +67,8 @@ class ConvertCurrencyUseCaseTest {
         when(getConversionRate.execute(from, to)).thenReturn(null);
 
         // When & Then
-        assertThrows(IllegalArgumentException.class, () -> convertCurrencyUseCase.execute(from, to, amount));
+        assertThrows(IllegalArgumentException.class, () ->
+                convertCurrencyUseCase.execute(from, to, amount));
     }
 
     @Test
@@ -77,9 +78,8 @@ class ConvertCurrencyUseCaseTest {
         BigDecimal amount = new BigDecimal("100");
 
         // When & Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            convertCurrencyUseCase.execute(null, to, amount);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+                convertCurrencyUseCase.execute(null, to, amount));
     }
 
     @Test
@@ -89,9 +89,8 @@ class ConvertCurrencyUseCaseTest {
         BigDecimal amount = new BigDecimal("100");
 
         // When & Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            convertCurrencyUseCase.execute(from, null, amount);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+                convertCurrencyUseCase.execute(from, null, amount));
     }
 
     @Test
@@ -101,8 +100,7 @@ class ConvertCurrencyUseCaseTest {
         Currency to = Currency.EUR;
 
         // When & Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            convertCurrencyUseCase.execute(from, to, null);
-        });
+        assertThrows(IllegalArgumentException.class, () ->
+                convertCurrencyUseCase.execute(from, to, null));
     }
 }

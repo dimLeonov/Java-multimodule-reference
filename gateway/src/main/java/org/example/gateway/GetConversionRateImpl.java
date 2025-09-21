@@ -23,16 +23,24 @@ public class GetConversionRateImpl implements GetConversionRate {
     @Override
     public BigDecimal execute(Currency from, Currency to) {
         log.info("Fetching conversion rate for {} to {}", from, to);
-        FrankfurterResponse response = restClient.get()
+
+        FrankfurterResponse response = restClient
+                .get()
                 .uri("/latest?from={from}&to={to}", from, to)
                 .retrieve()
                 .body(FrankfurterResponse.class);
 
-        if (response != null && response.getRates() != null && response.getRates().containsKey(to.name())) {
-            final BigDecimal rate = response.getRates().get(to.name());
+        if (response != null && response.getRates() != null &&
+                response.getRates().containsKey(to.name())
+        ) {
+            final BigDecimal rate = response
+                    .getRates()
+                    .get(to.name());
+
             log.info("Conversion rate for {} to {} is {}", from, to, rate);
             return rate;
         }
+
         log.warn("Could not fetch conversion rate for {} to {}", from, to);
         // Consider a more robust error handling strategy
         return null;

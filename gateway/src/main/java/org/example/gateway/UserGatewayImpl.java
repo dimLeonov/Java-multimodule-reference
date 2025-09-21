@@ -24,7 +24,8 @@ public class UserGatewayImpl implements UserGateway {
         }
         
         // Create a mock user object
-        User user = User.builder()
+        User user = User
+                .builder()
                 .firstName("John")
                 .lastName("Doe")
                 .email(email)

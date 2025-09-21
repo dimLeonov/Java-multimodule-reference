@@ -15,11 +15,17 @@ public class ConvertCurrencyUseCase {
         this.getConversionRate = getConversionRate;
     }
 
-    public BigDecimal execute(Currency from, Currency to, BigDecimal amount) {
+    public BigDecimal execute(
+            Currency from,
+            Currency to,
+            BigDecimal amount
+    ) {
         if (from == to) {
             return amount;
         }
+
         BigDecimal rate = getConversionRate.execute(from, to);
+
         if (rate == null) {
             // Or throw a custom exception
             throw new IllegalArgumentException("Conversion rate not available");

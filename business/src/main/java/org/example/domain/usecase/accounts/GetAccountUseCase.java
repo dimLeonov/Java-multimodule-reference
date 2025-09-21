@@ -23,6 +23,8 @@ public class GetAccountUseCase {
      * @return an Optional containing the account if found
      */
     public Account execute(Long id) {
-        return accountRepository.findById(id).orElse(null);
+        return accountRepository
+                .findById(id)
+                .orElse(null);
     }
 }
