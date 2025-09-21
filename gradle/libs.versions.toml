@@ -1,0 +1,44 @@
+[versions]
+springBoot = "3.4.7"
+springDependencyManagement = "1.1.4"
+junit = "5.10.0"
+mockito = "5.20.0"
+jakartaInject = "2.0.1"
+springdocOpenapi = "2.8.13"
+
+[libraries]
+# Spring Boot
+springBootStarter = { module = "org.springframework.boot:spring-boot-starter" }
+springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
+springBootStarterActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+springBootStarterDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test" }
+springBootDependencies = { module = "org.springframework.boot:spring-boot-dependencies" }
+
+# Spring Framework
+springContext = { module = "org.springframework:spring-context" }
+springWeb = { module = "org.springframework:spring-web" }
+
+# Springdoc OpenAPI
+springdocOpenapiStarterWebmvcUi = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdocOpenapi" }
+
+# Spring Data
+springDataJpa = { module = "org.springframework.data:spring-data-jpa" }
+
+# Database
+h2 = { module = "com.h2database:h2" }
+hibernateCore = { module = "org.hibernate.orm:hibernate-core" }
+
+# Jakarta
+jakartaPersistenceApi = { module = "jakarta.persistence:jakarta.persistence-api" }
+jakartaInject = { module = "jakarta.inject:jakarta.inject-api", version.ref = "jakartaInject"}
+
+# Testing
+junitBom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junitJupiter = { module = "org.junit.jupiter:junit-jupiter" }
+mockitoCore = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockitoJupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+
+[plugins]
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+springDependencyManagement = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }

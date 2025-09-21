@@ -1,0 +1,9 @@
+spring:
+  config:
+    import:
+      - "classpath:application-db.yaml"
+      - "classpath:application-server.yaml"
+      - "classpath:application-api.yaml"
+      - "classpath:application-jpa.yaml"
+      - "classpath:application-logging.yaml"
+
